@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - КТ Констръкшън</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style type="text/css">
+        body, [class="navbar navbar-fixed-top"] {
+            background-image: url("/Images/white_pattern.jpg");
+            background-repeat: repeat;
+        }
+
+        div[class="navbar-collapse collapse"] ul {
+            position: absolute;
+            right: 300px;
+        }
+
+        div[class="navbar navbar-inverse navbar-fixed-top"],
+        .navbar-inverse {
+            background-color: none!important;
+        }
+
+        a[class="navbar-brand"] {
+            font-size: 2em;
+            color: black;
+        }
+        
+        ul[class="nav navbar-nav"] a {
+            color: black;
+            padding: 20px 14px 0;
+            border-top: 6px solid transparent;
+            border-bottom: 0 none;
+            -webkit-transition: border-top-color .5s;
+            -moz-transition: border-top-color .5s;
+            -o-transition: border-top-color .5s;
+            transition: border-top-color .5s;
+        }
+
+            ul[class="nav navbar-nav"] a:hover, ul[class="nav navbar-nav"] a.active {
+                position: relative;
+                border-top: 6px solid #f14f50 !important;
+                border-left: 1px solid #e7e7e7;
+                border-right: 1px solid #e7e7e7;
+                border-bottom: 0 none;
+                background-color: transparent;
+            }
+
+        #main {
+            background-color: white;
+        }
+
+        footer {
+            background-color: white;
+            height: 110px;
+        }
+
+            footer p {
+                text-align: center;
+            }
+
+        input, textarea {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("КТ Констръкшън", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Начало", "Index", "Home")</li>
+                    <li>@Html.ActionLink("За нас", "About", "Home")</li>
+                    <li>@Html.ActionLink("Контакти", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="main" class="container body-content">
+        @RenderBody()
+        <footer class="footer">
+            <hr />
+            <p>&copy; @DateTime.Now.Year - КТ Констръкшън</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript">
+        $('div[class="navbar-collapse collapse"] ul li a[href="@Request.Path"]').addClass("active");
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
