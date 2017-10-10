@@ -69,6 +69,13 @@
         input, textarea {
             width: 100%;
         }
+
+        .navbar-header a.navbar-brand {
+            /*height: 150px;*/
+        }
+        #main {
+            margin-top: 100px;
+        }
     </style>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -84,7 +91,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("К Констръкшън", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a class="navbar-brand" href="/">
+                    <img src="~/Images/logo.gif" alt="logo" />
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
