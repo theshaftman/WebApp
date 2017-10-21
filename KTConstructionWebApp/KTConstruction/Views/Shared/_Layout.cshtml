@@ -148,20 +148,16 @@
     @Scripts.Render("~/bundles/bootstrap")
     <script type="text/javascript">
         var currentPath = window.location.href.substring(window.location.href.lastIndexOf("/") + 1);
-        $('div[class="navbar-collapse collapse"] ul li a[href="@Request.Path"]').addClass("active");
 
         switch (currentPath) {
-            case "":
+            case "About":
+                currentPath = "Home/" + currentPath;
                 break;
-            case "Services":
-                break;
-            case "Testimonials":
-                break;
-            case "AboutUs":
-                break;
-            case "Contacts":
+            case "Contact":
+                currentPath = "Home/" + currentPath;
                 break;
         };
+        $('#mainNavigationBar ul li a[href="/' + currentPath + '"]').addClass("active");
     </script>
     @RenderSection("scripts", required: false)
 </body>
