@@ -3,30 +3,185 @@
 }
 
 @*<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>*@
+        <h1>ASP.NET</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>*@
 
 @*<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@
+
+@section links {
+    <style type="text/css">
+        #myCarousel .pull-left {
+            padding: 30px;
+            background: rgba(51, 51, 51, 0.7);
+        }
+
+        /*#myCarousel img {
+            max-height: initial;
+            clip: rect(0px, 60px, 200px, 0px);
+        }*/
+
+        .header-image-holder {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #myCarousel img {
+            position: absolute;
+            width: 100%;
+        }
+
+        #homeContent {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-top: 50px;
+            padding-bottom: 20px;
+            width: 100%;
+            background-color: #edf295;
+        }
+
+            #homeContent .row {
+                margin-bottom: 30px;
+            }
+
+            #homeContent .one-thing {
+                font-size: 1.2em;
+            }
+
+                #homeContent .one-thing i {
+                    font-size: 5em;
+                    color: #9fa615;
+                }
+
+                #homeContent .one-thing a {
+                    color: #9fa615;
+                }
+    </style>
+}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="header-image-holder">
+                <img src="~/Images/Construction/Екстериорни ремонти/IMG_20170724_150436.jpg" style="top:0px;" alt="Image">
+            </div>
+            <div class="carousel-caption">
+                <div class="pull-left">
+                    <h3>Екстериорни Ремонти</h3>
+                    <a class="btn btn-block btn-default" href="/Testimonials#?exteriorRepair" target="_self">Вижте още</a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="header-image-holder">
+                <img src="~/Images/Construction/Интериорни ремонти/IMG_20170707_151039.jpg" style="top:-300px;" alt="Image">
+            </div>
+            <div class="carousel-caption">
+                <div class="pull-left">
+                    <h3>Интериорни Ремонти</h3>
+                    <a class="btn btn-block btn-default" href="/Testimonials#?interiorRepair" target="_self">Вижте още</a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="header-image-holder">
+                <img src="~/Images/Construction/Ремонт на Баня/IMG_20170707_150939.jpg" style="top:-300px;" alt="Image">
+            </div>
+            <div class="carousel-caption">
+                <div class="pull-left">
+                    <h3>Ремонти на Баня</h3>
+                    <a class="btn btn-block btn-default" href="/Testimonials#?bathRepair" target="_self">Вижте още</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<section>
+    <div id="homeContent" class="container">
+        <h3>Три неща, които трябва да знаете за това кои сме ние и как предпочитаме да работим:</h3>
+        <div class="row">
+            <div class="col-xs-7">
+                <p></p>
+
+                <div class="row">
+                    <div class="one-thing">
+                        <div class="col-md-2">
+                            <i class="glyphicon glyphicon-picture"></i>
+                        </div>
+                        <div class="col-md-10">
+                            <a href="/Testimonials">Портфолио</a><br>
+                            <p>Портфолиото ни е комбинация от решения с най-новите иновации и технологии в полза на нашите клиенти. Вижте нашата галерия</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="one-thing">
+                        <div class="col-md-2">
+                            <i class="glyphicon glyphicon-usd"></i>
+                        </div>
+                        <div class="col-md-10">
+                            <a href="/Testimonials">На каква цена?</a><br>
+                            <p>В основата нашите ценови модел са елементите:</p>
+                            <p><strong>добро планиране > успешен ремонт > щастлив клиент</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="one-thing">
+                        <div class="col-md-2">
+                            <i class="glyphicon glyphicon-bookmark"></i>
+                        </div>
+                        <div class="col-md-10">
+                            <a href="/Testimonials">Послание</a><br>
+                            <p>Ние даваме възможност на вашите най-смели идеи и очаквания да се превърнат в реалност.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>*@
-<p>In progress...</p>
+</section>
