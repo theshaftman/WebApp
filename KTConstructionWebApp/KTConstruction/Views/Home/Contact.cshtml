@@ -1,6 +1,19 @@
 ﻿@{
     ViewBag.Title = "Контакти";
 }
+
+@section links {
+    <script type="text/javascript" src="~/Scripts/Contacts/Service.js"></script>
+    <script type="text/javascript" src="~/Scripts/Contacts/ViewModel.js"></script>
+    <script type="text/javascript" src="~/Scripts/Contacts/Controller.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            Controller.init();
+        };
+    </script>
+}
+
+
 <h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
 
