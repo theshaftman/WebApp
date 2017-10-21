@@ -18,9 +18,8 @@
             background-repeat: repeat;
         }
 
-        div[class="navbar-collapse collapse"] ul {
-            position: absolute;
-            right: 300px;
+        #mainNavigationBar {
+            height: 150px;
         }
 
         div[class="navbar navbar-inverse navbar-fixed-top"],
@@ -59,12 +58,25 @@
 
         footer {
             border-top: 3px solid red;
-            background-color: white;
-            height: 110px;
+            background-color: #f14f50;
+            height: 150px;
         }
-
-            footer p {
+            footer * {
+                color: white;
                 text-align: center;
+            }
+
+            footer p#footerCopyright {
+                margin-top: 20px;
+                font-size: 1.1em;
+            }
+
+            footer hr {
+                width: 90%;
+            }
+
+            footer i {
+                margin-right: 7px;
             }
 
         input, textarea {
@@ -85,7 +97,7 @@
 </head>
 <body>
     <div class="navbar navbar-fixed-top">
-        <div class="container">
+        <div id="mainNavigationBar" class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -96,7 +108,7 @@
                     <img src="~/Images/logo.gif" alt="logo" />
                 </a>
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse pull-right">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Начало", "Index", "Home")</li>
                     <li>@Html.ActionLink("Сървиси", "Index", "Services")</li>
@@ -111,7 +123,22 @@
         @RenderBody()
         <footer class="footer">
             <hr />
-            <p>&copy; @DateTime.Now.Year - К Констръкшън</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <i class="glyphicon glyphicon-home"></i>
+                        <span>бул. „Евлоги и Христо Георгиеви“ 97</span><br />
+                        <span>1142 Център, София</span>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="https://goo.gl/maps/dFg146KCVqu" target="_blank" class="btn btn-danger"><i class="glyphicon glyphicon-map-marker"></i> Преглед на адреса в Google Maps</a>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="glyphicon glyphicon-earphone"></i> +3598********
+                    </div>
+                </div>
+            </div>
+            <p id="footerCopyright">&copy; @DateTime.Now.Year - К Констръкшън</p>
         </footer>
     </div>
 
