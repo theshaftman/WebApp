@@ -1,92 +1,114 @@
 ﻿@{
     ViewBag.Title = "За нас";
 }
-@*<h2>@ViewBag.Title</h2>
-    <h3>@ViewBag.Message</h3>*@
 
-<h3 style="text-decoration: underline;">Кои сме ние?</h3>
-<p>
-    KT Кънстракшън вярва, че строителството е най-важният инструмент за постигане на желаният уют и комфорт във вашият дом.
-</p>
-<h3 style="text-decoration: underline;">
-    Нашите принципи
-</h3>
+@section links {
+    <style type="text/css">
+        #mainBody {
+            padding: 30px 0px;
+            margin-top: 30px;
+            width: 100%;
+            background-color: #edf295;
+            font-size: 1.3em;
+        }
 
-Създадена през 2010 година, в основите на фирмата са заложени:
+            #mainBody * {
+                font-style: italic;
+            }
 
-<ul>
-    <li>Съдействие на клиентите в реализацията на техните идеи, впечатления и проекти</li>
-    <li>Качествени услуги на разумни цени</li>
-    <li>Лоялно отношение към всеки наш клиент и партньор</li>
-</ul>
+            #mainBody .row {
+                padding: 0px 30px;
+            }
 
-<h3 style="text-decoration: underline;">Екип</h3>
-<p>За да бъдем сигурни,че основната цел е винаги доведена до успешен край, тези принципи са неразделна част от нашият екип, съставен от специалисти с необходимата квалификация и рутина.</p>
+            #mainBody h3 {
+                color: #9fa615;
+            }
 
-<h3 style="text-decoration: underline;">Портфолио</h3>
-<p>Портфолиото ни е комбинация от решения с най-новите иновации и технологии в полза на нашите клиенти. Вижте нашата галерия</p>
 
-<h3 style="text-decoration: underline;">На каква цена?</h3>
-<p>В основата нашите ценови модел са елементите:</p>
-<p>добро планиране>успешен ремонт>щастлив клиент</p>
+        ul {
+            list-style-type: none;
+        }
+    </style>
 
-<h3 style="text-decoration: underline;">Послание</h3>
-<p>
-    Ние даваме възможност на вашите най-смели идеи и очаквания да се превърнат в реалност.
-</p>
+    <script type="text/javascript" src="~/Scripts/AboutUs/Service.js"></script>
+    <script type="text/javascript" src="~/Scripts/AboutUs/ViewModel.js"></script>
+    <script type="text/javascript" src="~/Scripts/AboutUs/Controller.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            Controller.init();
+        };
+    </script>
+}
 
-<div class="be-section-pad clearfix " style=" padding-top:60px;padding-bottom:60px;" data-padding-top="60">
-    <div class="be-row">
-        <div class="col-md-2 gal-item">
-            <div class="be-custom-column-inner">
-                <div class="animate-number-wrap align-center">
-                    <span style="color:#323232;font-size:45px;line-height:1.3">18</span>
-                    <h6>
-                        <span class="animate-number-caption" style="color:#323232;font-size:13px;">Oбщо проекти</span>
-                    </h6>
+<div id="mainBody" class="container">
+    <div class="row">
+        <h3>Кои сме ние?</h3>
+        <p>KT Кънстракшън вярва, че строителството е най-важният инструмент за постигане на желаният уют и комфорт във вашият дом.</p>
+    </div>
+    <div class="row">
+        <h3>Нашите принципи</h3>
+        <p>Създадена през 2010 година, в основите на фирмата са заложени:</p>
+        <ul>
+            <li><i class="glyphicon glyphicon-ok"></i> Съдействие на клиентите в реализацията на техните идеи, впечатления и проекти</li>
+            <li><i class="glyphicon glyphicon-ok"></i> Качествени услуги на разумни цени</li>
+            <li><i class="glyphicon glyphicon-ok"></i> Лоялно отношение към всеки наш клиент и партньор</li>
+        </ul>
+    </div>
+</div>
+
+<div id="sightseeing" class="row">
+    <div class="be-section-pad clearfix " style="padding-top:60px;padding-bottom:60px;" data-padding-top="60">
+        <div class="be-row">
+            <div class="col-md-2 gal-item">
+                <div class="be-custom-column-inner">
+                    <div class="animate-number-wrap align-center">
+                        <span id="allProjects" style="color:#323232;font-size:45px;line-height:1.3"></span>
+                        <h6>
+                            <span class="animate-number-caption" style="color:#323232;font-size:13px;">Oбщо проекти</span>
+                        </h6>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-2 gal-item">
-            <div class="be-custom-column-inner">
-                <div class="animate-number-wrap align-center">
-                    <span style="color:#323232;font-size:45px;line-height:1.3">7</span>
-                    <h6>
-                        <span class="animate-number-caption" style="color:#323232;font-size:13px;">Интериорни</span>
-                    </h6>
+            <div class="col-md-2 gal-item">
+                <div class="be-custom-column-inner">
+                    <div class="animate-number-wrap align-center">
+                        <span id="interiorRepairs" style="color:#323232;font-size:45px;line-height:1.3"></span>
+                        <h6>
+                            <span class="animate-number-caption" style="color:#323232;font-size:13px;">Интериорни</span>
+                        </h6>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-2 gal-item">
-            <div class="be-custom-column-inner">
-                <div class="animate-number-wrap align-center">
-                    <span style="color:#323232;font-size:45px;line-height:1.3">5</span>
-                    <h6>
-                        <span class="animate-number-caption" style="color:#323232;font-size:13px;">Екстериорни</span>
-                    </h6>
+            <div class="col-md-2 gal-item">
+                <div class="be-custom-column-inner">
+                    <div class="animate-number-wrap align-center">
+                        <span id="exteriorRepairs" style="color:#323232;font-size:45px;line-height:1.3"></span>
+                        <h6>
+                            <span class="animate-number-caption" style="color:#323232;font-size:13px;">Екстериорни</span>
+                        </h6>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-2 gal-item">
-            <div class="be-custom-column-inner">
-                <div class="animate-number-wrap align-center">
-                    <span style="color:#323232;font-size:45px;line-height:1.3">6</span>
-                    <h6>
-                        <span class="animate-number-caption" style="color:#323232;font-size:13px;">Ремонт на баня</span>
-                    </h6>
+            <div class="col-md-2 gal-item">
+                <div class="be-custom-column-inner">
+                    <div class="animate-number-wrap align-center">
+                        <span id="bathRepairs" style="color:#323232;font-size:45px;line-height:1.3"></span>
+                        <h6>
+                            <span class="animate-number-caption" style="color:#323232;font-size:13px;">Ремонт на баня</span>
+                        </h6>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-2 gal-item">
-            <div class="be-custom-column-inner">
-                <div class="animate-number-wrap align-center">
-                    <span style="color:#323232;font-size:45px;line-height:1.3">9</span>
-                    <h6>
-                        <span class="animate-number-caption" style="color:#323232;font-size:13px;">Текущи проекти</span>
-                    </h6>
+            <div class="col-md-2 gal-item">
+                <div class="be-custom-column-inner">
+                    <div class="animate-number-wrap align-center">
+                        <span id="currentProjects" style="color:#323232;font-size:45px;line-height:1.3"></span>
+                        <h6>
+                            <span class="animate-number-caption" style="color:#323232;font-size:13px;">Текущи проекти</span>
+                        </h6>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
