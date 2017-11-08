@@ -3,40 +3,110 @@
     ViewBag.Title = "Сървиси";
 }
 
-<h3>Ремонт  на Интериор:</h3>
-<ul>
-    <li>Обзавеждане</li>
-    <li>Дизайн и Реновации</li>
-    <li>Високо качествени покрития:
-        <ul>
-            <li>Боядисване</li>
-            <li>Мазилки</li>
-            <li>Шпакловки</li>
-            <li>Замазки</li>
-        </ul>
-    </li>
-    <li>Настилки:
-        <ul>
-            <li>Паркети</li>
-            <li>Ламперии</li>
-            <li>Плочки</li>
-        </ul>
-    </li>
-    <li>ВиК услуги</li>
-    <li>Ел. Услуги</li>
-</ul>
+@section links {
+    <style type="text/css">
+        #main .container-fluid {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            width: 100%;
+        }
 
-<h3>Ремонт на баня:</h3>
-<ul>
-    <li>Дизайн</li>
-    <li>Предекориране</li>
-    <li>Обзавеждане</li>
-</ul>
+            #main .container-fluid p {
+                padding: 30px;
+                color: black;
+                background-color: #cccccc;
+            }
 
-<h3>Екстериорен ремонт:</h3>
-<ul>
-    <li>Дограми</li>
-    <li>Зидарии</li>
-    <li>Ремонт на покриви</li>
-    <li>Изолации</li>
-</ul>
+            #main .container-fluid p:hover {
+                color: #777;
+                background-color: #ddd;
+            }
+                
+            #main .container-fluid i {
+                    font-size: 6em;
+                }
+
+            #main .container-fluid ul i {
+                font-size: 1em;
+            }
+
+        #main ul {
+            list-style-type: none;
+        }
+
+            #main ul li {
+                text-align: left;
+                font-size: 1.4em;
+            }
+
+            #main ul.secondary {
+                font-size: 0.8em;
+            }
+    </style>
+}
+
+<div class="container-fluid bg-3 text-center">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Ремонт на Интериор</h3>
+            <a href="/Testimonials#?interiorRepair">
+                <p><i class="glyphicon glyphicon-modal-window"></i></p>
+                <!--    
+                <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                -->
+            </a>
+            <ul style="margin-top: 30px;">
+                <li><i class="glyphicon glyphicon-ok-circle"></i> Обзавеждане</li>
+                <li><i class="glyphicon glyphicon-ok-circle"></i> Дизайн и Реновации</li>
+                <li><i class="glyphicon glyphicon-ok-circle"></i> 
+                    Високо качествени покрития:
+                    <ul class="secondary">
+                        <li><i class="glyphicon glyphicon-circle-arrow-right"></i> Боядисване</li>
+                        <li><i class="glyphicon glyphicon-circle-arrow-right"></i> Мазилки</li>
+                        <li><i class="glyphicon glyphicon-circle-arrow-right"></i> Шпакловки</li>
+                        <li><i class="glyphicon glyphicon-circle-arrow-right"></i> Замазки</li>
+                    </ul>
+                </li>
+                <li><i class="glyphicon glyphicon-ok-circle"></i> 
+                    Настилки:
+                    <ul class="secondary">
+                        <li><i class="glyphicon glyphicon-circle-arrow-right"></i> Паркети</li>
+                        <li><i class="glyphicon glyphicon-circle-arrow-right"></i> Ламперии</li>
+                        <li><i class="glyphicon glyphicon-circle-arrow-right"></i> Плочки</li>
+                    </ul>
+                </li>
+                <li><i class="glyphicon glyphicon-ok-circle"></i> ВиК услуги</li>
+                <li><i class="glyphicon glyphicon-ok-circle"></i> Ел. Услуги</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3>Ремонт на баня</h3>
+            <a href="/Testimonials#?bathRepair">
+                <p><i class="glyphicon glyphicon-wrench"></i></p>
+                <!--
+                <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                -->
+            </a>
+            <ul style="margin-top: 30px;">
+                <li><i class="glyphicon glyphicon-ok-circle"></i> Дизайн</li>
+                <li><i class="glyphicon glyphicon-ok-circle"></i> Предекориране</li>
+                <li><i class="glyphicon glyphicon-ok-circle"></i> Обзавеждане</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3>Екстериорен ремонт</h3>
+            <a href="/Testimonials#?exteriorRepair">
+                <p><i class="glyphicon glyphicon-home"></i></p>
+                <!--
+                <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                -->
+            </a>
+            <ul style="margin-top: 30px;">
+                <li><i class="glyphicon glyphicon-ok-circle"></i> Дограми</li>
+                <li><i class="glyphicon glyphicon-ok-circle"></i> Зидарии</li>
+                <li><i class="glyphicon glyphicon-ok-circle"></i> Ремонт на покриви</li>
+                <li><i class="glyphicon glyphicon-ok-circle"></i> Изолации</li>
+            </ul>
+        </div>
+    </div>
+</div>
