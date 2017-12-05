@@ -19,11 +19,11 @@ namespace KTConstruction.Model.Data
                 {
                     MailMessage message = new MailMessage(Constant.USERNAME, Constant.MAIL_TO);
                     message.CC.Add(emailFrom);
-                    message.Subject = "KT Construction: Contact Request Information";
+                    message.Subject = Constant.MESSAGE_TITLE;
                     message.IsBodyHtml = true;
                     message.Body = emailContent;
 
-                    SmtpClient mailer = new SmtpClient("smtp.gmail.com", 587);
+                    SmtpClient mailer = new SmtpClient("smtp.gmail.com", Constant.PORT);
                     mailer.Credentials = new NetworkCredential(Constant.USERNAME, Constant.PASSWORD);
                     mailer.EnableSsl = true;
                     mailer.Send(message);
