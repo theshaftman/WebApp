@@ -42,7 +42,34 @@
             #main ul.secondary {
                 font-size: 0.8em;
             }
+
+        /* hide elements */
+        .col-md-4 ul:not(.secondary) li {
+            opacity: 0;
+            transition: opacity .5s ease-in-out;
+            -moz-transition: opacity .5s ease-in-out;
+            -webkit-transition: opacity .5s ease-in-out;
+        }
     </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var ulElements = document.querySelectorAll('.col-md-4 ul:not(.secondary)');
+            ulElements.forEach(function (el) {
+                liInUl = el.getElementsByTagName('li');
+                for (var ind in liInUl) {
+                    elem = liInUl[ind];
+                    if (typeof elem != "function") {
+                        modifyElement(elem, parseInt(ind));
+                    }
+                }
+            });
+        };
+        function modifyElement(elem, time) {
+            setTimeout(function () {
+                elem.style.opacity = "1";
+            }, 200 * time);
+        }
+    </script>
 }
 
 <div class="container-fluid bg-3 text-center">
