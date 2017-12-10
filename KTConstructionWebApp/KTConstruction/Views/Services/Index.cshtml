@@ -10,21 +10,18 @@
             margin-bottom: 30px;
             width: 100%;
         }
-
+            #main .container-fluid a {
+                width: 100%;
+            }
+            
             #main .container-fluid p {
-                padding: 30px;
-                color: black;
-                background-color: #cccccc;
+                padding: 10px;
+                color: white;
             }
-
-            #main .container-fluid p:hover {
-                color: #777;
-                background-color: #ddd;
-            }
-                
+ 
             #main .container-fluid i {
-                    font-size: 6em;
-                }
+                font-size: 6em;
+            }
 
             #main .container-fluid ul i {
                 font-size: 1em;
@@ -53,7 +50,28 @@
     </style>
     <script type="text/javascript">
         window.onload = function () {
-            var ulElements = document.querySelectorAll('.col-md-4 ul:not(.secondary)');
+            loadServices();
+        };
+        function modifyElement(elem, time) {
+            setTimeout(function () {
+                if (elem.style) {
+                    elem.style.opacity = "1";
+                }
+            }, 200 * time);
+        }
+        function loadServices(elemId) {
+            var ulElements = document.querySelectorAll('.col-md-4 ul:not(.secondary)' + (elemId ? '#' + elemId : ''));
+            if (elemId) {
+                ulElements.forEach(function (el) {
+                    liInUl = el.getElementsByTagName('li');
+                    for (var ind in liInUl) {
+                        elem = liInUl[ind];
+                        if (typeof elem != "function" && elem.style) {
+                            elem.style.opacity = "0";
+                        }
+                    }
+                });
+            }
             ulElements.forEach(function (el) {
                 liInUl = el.getElementsByTagName('li');
                 for (var ind in liInUl) {
@@ -63,11 +81,6 @@
                     }
                 }
             });
-        };
-        function modifyElement(elem, time) {
-            setTimeout(function () {
-                elem.style.opacity = "1";
-            }, 200 * time);
         }
     </script>
 }
@@ -76,13 +89,13 @@
     <div class="row">
         <div class="col-md-4">
             <h3>Ремонт на Интериор</h3>
-            <a href="/Testimonials#?interiorRepair">
+            <a class="btn btn-danger" href="/Testimonials#?interiorRepair" onmouseenter="loadServices('interior');">
                 <p><i class="glyphicon glyphicon-modal-window"></i></p>
                 <!--    
                 <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
                 -->
             </a>
-            <ul style="margin-top: 30px;">
+            <ul id="interior" style="margin-top: 30px;">
                 <li><i class="glyphicon glyphicon-ok-circle"></i> Обзавеждане</li>
                 <li><i class="glyphicon glyphicon-ok-circle"></i> Дизайн и Реновации</li>
                 <li><i class="glyphicon glyphicon-ok-circle"></i> 
@@ -108,13 +121,13 @@
         </div>
         <div class="col-md-4">
             <h3>Ремонт на баня</h3>
-            <a href="/Testimonials#?bathRepair">
+            <a class="btn btn-danger" href="/Testimonials#?bathRepair" onmouseenter="loadServices('bath');">
                 <p><i class="glyphicon glyphicon-wrench"></i></p>
                 <!--
                 <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
                 -->
             </a>
-            <ul style="margin-top: 30px;">
+            <ul id="bath" style="margin-top: 30px;">
                 <li><i class="glyphicon glyphicon-ok-circle"></i> Дизайн</li>
                 <li><i class="glyphicon glyphicon-ok-circle"></i> Предекориране</li>
                 <li><i class="glyphicon glyphicon-ok-circle"></i> Обзавеждане</li>
@@ -122,13 +135,13 @@
         </div>
         <div class="col-md-4">
             <h3>Екстериорен ремонт</h3>
-            <a href="/Testimonials#?exteriorRepair">
+            <a class="btn btn-danger" href="/Testimonials#?exteriorRepair" onmouseenter="loadServices('exterior');">
                 <p><i class="glyphicon glyphicon-home"></i></p>
                 <!--
                 <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
                 -->
             </a>
-            <ul style="margin-top: 30px;">
+            <ul id="exterior" style="margin-top: 30px;">
                 <li><i class="glyphicon glyphicon-ok-circle"></i> Дограми</li>
                 <li><i class="glyphicon glyphicon-ok-circle"></i> Зидарии</li>
                 <li><i class="glyphicon glyphicon-ok-circle"></i> Ремонт на покриви</li>
