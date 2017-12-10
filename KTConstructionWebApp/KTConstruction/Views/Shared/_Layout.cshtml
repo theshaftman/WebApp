@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - К Констръкшън</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="~/Images/logo.gif" />
 
     @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">*@
@@ -91,6 +92,19 @@
         #main {
             margin-top: 100px;
         }
+
+        div.navbar-fixed-bottom {
+            margin: 0!important;
+            background-color: transparent!important;
+            border: 0px solid transparent;
+        }
+            /*div.navbar-fixed-bottom ul {
+                background-color: #f14f50;
+            }
+
+                div.navbar-fixed-bottom ul a {
+                    color: white!important;
+                }*/
     </style>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -98,51 +112,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="navbar navbar-fixed-top">
-        <div id="mainNavigationBar" class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">
-                    <img src="~/Images/logo.gif" alt="logo" />
-                </a>
-            </div>
-            <div class="navbar-collapse collapse pull-right">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Начало", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Услуги", "Index", "Services")</li>
-                    <li>@Html.ActionLink("Галерия", "Index", "Testimonials")</li>
-                    <li>@Html.ActionLink("За нас", "About", "Home")</li>
-                    <li>@Html.ActionLink("Контакти", "Index", "Contact")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    @Html.Partial("_Navigation")
     <div id="main" class="container body-content">
         @RenderBody()
-        <footer class="footer">
-            <hr />
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <i class="glyphicon glyphicon-home"></i>
-                        <span>бул. „Евлоги и Христо Георгиеви“ 97</span><br />
-                        <span>1142 Център, София</span>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="https://goo.gl/maps/dFg146KCVqu" target="_blank" class="btn btn-danger"><i class="glyphicon glyphicon-map-marker"></i> Преглед на адреса в Google Maps</a>
-                    </div>
-                    <div class="col-md-4">
-                        <i class="glyphicon glyphicon-earphone"></i> +3598********
-                    </div>
-                </div>
-            </div>
-            <p id="footerCopyright">&copy; @DateTime.Now.Year - К Констръкшън</p>
-        </footer>
+        @Html.Partial("_Footer")
+        @Html.Partial("_AsideMail")        
     </div>
+    @Html.Partial("_ModalView");
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -158,6 +134,37 @@
                 break;
         };
         $('#mainNavigationBar ul li a[href="/' + currentPath + '"]').addClass("active");
+        document.getElementById("sendAsideEmail").addEventListener("click", sendMail);
+        function sendMail(ev, fr, ctn) {
+            var fromMail = document.getElementsByName(fr ? fr : "asideMailFrom")[0].value.trim(),
+                contentMail = document.getElementsByName(ctn ? ctn : "asideMailContent")[0].value.trim();
+            if (fromMail && fromMail.length > 0 && contentMail && contentMail.length > 0) {
+                $.ajax({
+                    url: "/Contact/SendMail",
+                    type: "POST",
+                    data: {
+                        emailFrom: fromMail,
+                        emailContent: contentMail
+                    }
+                }).done(function (resp) {
+                    if (resp.status) {
+                        document.getElementsByName(fr ? fr : "asideMailFrom")[0].value = "";
+                        document.getElementsByName(ctn ? ctn : "asideMailContent")[0].value = "";
+                        alertMessage("Success", "Съобщението е изпратено успешно");
+                    } else {
+                        alertMessage("Fail", "Съобщението НЕ е изпратено успешно");
+                    }
+                });
+            } else {
+                alertMessage("Fail", "Моля попълнете полетата \"от\" или \"коментар\"!");
+            }
+        };
+
+        function alertMessage(status, message) {
+            document.querySelectorAll("#myModal .modal-title")[0].innerText = status;
+            document.querySelectorAll("#myModal .modal-body")[0].innerText = message;
+            $("#myModal").modal();
+        };
     </script>
     @RenderSection("scripts", required: false)
 </body>
