@@ -32,7 +32,11 @@ namespace KTConstruction.Controllers
             string emailFrom = nvc["emailFrom"];
             string emailContent = nvc["emailContent"];
             bool status = this._mailModel.SendMail(emailFrom, emailContent);
-            return RedirectToAction("Index", "Contact");
+            return Json(new
+            {
+                status = status
+            }, JsonRequestBehavior.AllowGet);
+            //return RedirectToAction("Index", "Contact");
         }
     }
 }
