@@ -32,7 +32,7 @@
             padding-top: 50px;
             padding-bottom: 20px;
             width: 100%;
-            background-color: #edf295;
+            background-color: #efefef;
         }
             #homeContent p,
             #homeContent a {
@@ -49,21 +49,30 @@
 
                 #homeContent .one-thing i {
                     font-size: 5em;
-                    color: #9fa615;
+                    color: #e05858;
                 }
 
                 #homeContent .one-thing a {
-                    color: #9fa615;
+                    color: #e05858;
                 }
-
-        div.col-xs-7 div.row:hover {
-            background-color: #fbfebf;
+        div.col-xs-7 div.row {
+            background-color: initial;
+            -webkit-transition: background-color 1000ms linear;
+            -moz-transition: background-color 1000ms linear;
+            -o-transition: background-color 1000ms linear;
+            -ms-transition: background-color 1000ms linear;
+            transition: background-color 1000ms linear;
         }
 
-            div.col-xs-7 div.row:hover a,
-            div.col-xs-7 div.row:hover i {
-                color: #6c7012 !important;
+            div.col-xs-7 div.row:hover {
+                background-color: #e1e1e1;
             }
+
+                div.col-xs-7 div.row:hover a,
+                div.col-xs-7 div.row:hover i {
+                    color: #ca2d2d !important;
+                }
+
     </style>
 }
 

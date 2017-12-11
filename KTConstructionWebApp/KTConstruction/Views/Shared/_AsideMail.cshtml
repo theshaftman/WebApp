@@ -6,12 +6,12 @@
                     <button type="button" class="btn btn-danger dropdown-toggle" id="sendMessageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-envelope-open" style="font-size:36px;"></i>
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="sendMessageDropdown">
+                    <div class="dropdown-menu" aria-labelledby="sendMessageDropdown" style="min-width: 220px; padding: 10px; background-color: white; border: 1px solid black;">
                         <label for="asideMailFrom">От: </label>
                         <input type="email" name="asideMailFrom" />
                         <label for="asideMailContent">Коментар: </label>
-                        <textarea style="width: 180px; height: 200px; resize: none;" name="asideMailContent"></textarea>
-                        <button id="sendAsideEmail" class="btn btn-success dropdown-item" type="button" style="width: 100%;">Изпрати</button>
+                        <textarea style="width: 100%; height: 200px; resize: none;" name="asideMailContent"></textarea>
+                        <button id="sendAsideEmail" class="btn btn-default dropdown-item sendEmail" type="button" style="width: 100%;">Изпрати</button>
                     </div>
                 </div>
             </li>
